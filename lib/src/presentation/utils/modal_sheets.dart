@@ -76,9 +76,10 @@ Future<bool> exitDialog(
                         offset: const Offset(0, 1),
                         blurRadius: 4),
                   ]),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
+              child: IntrinsicHeight(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
                   Text(
                     config.exitDialogTitle,
                     style: TextStyle(
@@ -202,7 +203,8 @@ Future<bool> exitDialog(
                       ],
                     ),
                   ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
