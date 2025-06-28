@@ -15,6 +15,7 @@ import 'package:vs_story_designer/src/presentation/main_view/main_view.dart';
 import 'package:vs_story_designer/src/domain/models/vs_story_designer_config.dart';
 
 export 'package:vs_story_designer/vs_story_designer.dart';
+export 'package:vs_story_designer/src/domain/models/vs_story_designer_config.dart';
 
 enum ThemeType { dark, light }
 
