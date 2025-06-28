@@ -10,6 +10,7 @@ import 'package:vs_story_designer/src/domain/sevices/save_as_image.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/text_animation_type.dart';
 import 'package:vs_story_designer/src/presentation/utils/modal_sheets.dart';
+import 'package:vs_story_designer/src/domain/models/vs_story_designer_config.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 import 'package:vs_story_designer/src/presentation/widgets/tool_button.dart';
 
@@ -17,10 +18,12 @@ class TopTools extends StatefulWidget {
   final GlobalKey contentKey;
   final BuildContext context;
   final Function? renderWidget;
+  final VSStoryDesignerConfig config;
   const TopTools(
       {super.key,
       required this.contentKey,
       required this.context,
+      required this.config,
       this.renderWidget});
 
   @override
@@ -49,7 +52,8 @@ class _TopToolsState extends State<TopTools> {
                       exitDialog(
                               context: widget.context,
                               contentKey: widget.contentKey,
-                              themeType: controlNotifier.themeType)
+                              themeType: controlNotifier.themeType,
+                              config: widget.config)
                           .then((res) {
                         if (res) Navigator.pop(context);
                       });

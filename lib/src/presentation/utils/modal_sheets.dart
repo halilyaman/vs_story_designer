@@ -14,6 +14,7 @@ import 'package:vs_story_designer/src/presentation/utils/Extensions/hexColor.dar
 // import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 import 'package:vs_story_designer/vs_story_designer.dart';
+import 'package:vs_story_designer/src/domain/models/vs_story_designer_config.dart';
 
 /// create item of type GIF
 // Future createGiphyItem(
@@ -44,7 +45,8 @@ import 'package:vs_story_designer/vs_story_designer.dart';
 Future<bool> exitDialog(
     {required context,
     required contentKey,
-    required ThemeType themeType}) async {
+    required ThemeType themeType,
+    required VSStoryDesignerConfig config}) async {
   return (await showDialog(
         context: context,
         // barrierColor:
@@ -79,7 +81,7 @@ Future<bool> exitDialog(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Text(
-                    'Discard Edits?',
+                    config.exitDialogTitle,
                     style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w600,
@@ -92,7 +94,7 @@ Future<bool> exitDialog(
                     height: 20,
                   ),
                   Text(
-                    "If you go back now, you'll lose all the edits you've made.",
+                    config.exitDialogMessage,
                     style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w400,
@@ -119,7 +121,7 @@ Future<bool> exitDialog(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Discard',
+                          config.exitDialogDiscardButton,
                           style: TextStyle(
                               fontSize: 16,
                               color: Colors.redAccent.shade200,
@@ -188,7 +190,7 @@ Future<bool> exitDialog(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Cancel',
+                          config.exitDialogCancelButton,
                           style: TextStyle(
                               fontSize: 16,
                               color: themeType == ThemeType.light
