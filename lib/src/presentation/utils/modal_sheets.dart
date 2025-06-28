@@ -57,26 +57,26 @@ Future<bool> exitDialog(
           elevation: 0,
           insetAnimationDuration: const Duration(milliseconds: 300),
           insetAnimationCurve: Curves.ease,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: themeType == ThemeType.light
-                      ? Colors.white
-                      : HexColor.fromHex('#262626'),
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                        color: themeType == ThemeType.light
-                            ? Colors.black
-                            : Colors.white10,
-                        offset: const Offset(0, 1),
-                        blurRadius: 4),
-                  ]),
-              child: IntrinsicHeight(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color: themeType == ThemeType.light
+                        ? Colors.white
+                        : HexColor.fromHex('#262626'),
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                          color: themeType == ThemeType.light
+                              ? Colors.black
+                              : Colors.white10,
+                          offset: const Offset(0, 1),
+                          blurRadius: 4),
+                    ]),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
@@ -110,7 +110,7 @@ Future<bool> exitDialog(
                           ? Colors.black26
                           : Colors.white10),
                   const SizedBox(height: 10),
-
+                
                   /// discard
                   AnimatedOnTapButton(
                     onTap: () async {
@@ -138,7 +138,7 @@ Future<bool> exitDialog(
                   //     color: Colors.white10,
                   //   ),
                   // ),
-
+                
                   /// save and exit
                   // AnimatedOnTapButton(
                   //   onTap: () async {
@@ -180,7 +180,7 @@ Future<bool> exitDialog(
                           ? Colors.black26
                           : Colors.white10),
                   const SizedBox(height: 10),
-
+                
                   ///cancel
                   AnimatedOnTapButton(
                     onTap: () {
