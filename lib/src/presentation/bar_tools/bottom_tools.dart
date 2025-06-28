@@ -12,6 +12,7 @@ import 'package:vs_story_designer/src/domain/sevices/save_as_image.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/text_animation_type.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
+import 'package:vs_story_designer/src/domain/models/vs_story_designer_config.dart';
 
 // import 'package:vs_story_designer/src/presentation/widgets/tool_button.dart';
 
@@ -23,13 +24,15 @@ class BottomTools extends StatelessWidget {
 
   /// editor background color
   final Color? editorBackgroundColor;
+  final VSStoryDesignerConfig config;
   const BottomTools(
       {super.key,
       required this.contentKey,
       required this.onDone,
       this.renderWidget,
       this.onDoneButtonStyle,
-      this.editorBackgroundColor});
+      this.editorBackgroundColor,
+      required this.config});
 
   @override
   Widget build(BuildContext context) {
@@ -197,7 +200,7 @@ class BottomTools extends StatelessWidget {
                         });
                       }
                     } else {
-                      showToast('Design something to save image');
+                      showToast(config.emptySaveErrorMessage);
                     }
                     // setState(() {
                     _createVideo = false;

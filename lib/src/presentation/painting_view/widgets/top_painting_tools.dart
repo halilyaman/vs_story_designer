@@ -6,9 +6,11 @@ import 'package:vs_story_designer/src/domain/providers/notifiers/control_provide
 import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/painting_type.dart';
 import 'package:vs_story_designer/src/presentation/widgets/tool_button.dart';
+import 'package:vs_story_designer/src/domain/models/vs_story_designer_config.dart';
 
 class TopPaintingTools extends StatefulWidget {
-  const TopPaintingTools({super.key});
+  final VSStoryDesignerConfig config;
+  const TopPaintingTools({super.key, required this.config});
 
   @override
   _TopPaintingToolsState createState() => _TopPaintingToolsState();
@@ -177,9 +179,9 @@ class _TopPaintingToolsState extends State<TopPaintingTools> {
                           color: Colors.black12,
                           border: Border.all(color: Colors.white, width: 1.5),
                           borderRadius: BorderRadius.circular(15)),
-                      child: const Text(
-                        'Done',
-                        style: TextStyle(
+                      child: Text(
+                        widget.config.doneButtonText,
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 15,
                           fontWeight: FontWeight.w500,

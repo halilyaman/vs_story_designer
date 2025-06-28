@@ -185,13 +185,13 @@ class _TopToolsState extends State<TopTools> {
                               saveToGallery: true,
                               fileName: controlNotifier.folderName);
                           if (response) {
-                            showToast('Successfully saved');
+                            showToast(widget.config.successSaveMessage);
                           } else {}
                         }
                         // ignore: use_build_context_synchronously
                         Navigator.of(context, rootNavigator: true).pop();
                       } else {
-                        showToast('Design something to save image');
+                        showToast(widget.config.emptySaveErrorMessage);
                       }
 
                       setState(() {

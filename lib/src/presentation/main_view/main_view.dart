@@ -423,6 +423,7 @@ class _MainViewState extends State<MainView> {
                               onDoneButtonStyle: widget.onDoneButtonStyle,
                               editorBackgroundColor:
                                   widget.editorBackgroundColor,
+                              config: widget.config,
                             ),
                           ),
 
@@ -431,13 +432,14 @@ class _MainViewState extends State<MainView> {
                           visible: controlNotifier.isTextEditing,
                           child: TextEditor(
                             context: context,
+                            config: widget.config,
                           ),
                         ),
 
                         /// show painting sketch
                         Visibility(
                           visible: controlNotifier.isPainting,
-                          child: const Painting(),
+                          child: Painting(config: widget.config),
                         )
                       ],
                     ),
@@ -483,9 +485,9 @@ class _MainViewState extends State<MainView> {
                                     color: Colors.white,
                                     width: 1.2,
                                   )),
-                              child: const Text(
-                                'Cancel',
-                                style: TextStyle(
+                              child: Text(
+                                widget.config.cancelButtonText,
+                                style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 15,
                                     fontWeight: FontWeight.w400),
