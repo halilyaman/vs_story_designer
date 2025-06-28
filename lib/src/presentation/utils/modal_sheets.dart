@@ -62,7 +62,6 @@ Future<bool> exitDialog(
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               alignment: Alignment.center,
-              height: 250,
               decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
                   color: themeType == ThemeType.light
