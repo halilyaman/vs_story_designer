@@ -57,9 +57,9 @@ Future<bool> exitDialog(
           elevation: 0,
           insetAnimationDuration: const Duration(milliseconds: 300),
           insetAnimationCurve: Curves.ease,
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: IntrinsicHeight(
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                 alignment: Alignment.center,
@@ -203,6 +203,7 @@ Future<bool> exitDialog(
                       ],
                     ),
                   ),
+                  const SizedBox(height: 10),
                   ],
                 ),
               ),
