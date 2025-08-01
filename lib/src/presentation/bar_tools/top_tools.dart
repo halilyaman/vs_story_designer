@@ -55,7 +55,7 @@ class _TopToolsState extends State<TopTools> {
                               themeType: controlNotifier.themeType,
                               config: widget.config)
                           .then((res) {
-                        if (res) Navigator.pop(context);
+                        if (res && context.mounted) Navigator.pop(context);
                       });
                     },
                     child: const Icon(

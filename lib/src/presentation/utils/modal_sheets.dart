@@ -15,7 +15,6 @@ import 'package:vs_story_designer/src/presentation/utils/Extensions/hexColor.dar
 // import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 import 'package:vs_story_designer/vs_story_designer.dart';
-import 'package:vs_story_designer/src/domain/models/vs_story_designer_config.dart';
 
 /// create item of type GIF
 // Future createGiphyItem(

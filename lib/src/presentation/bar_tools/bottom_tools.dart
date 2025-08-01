@@ -189,7 +189,9 @@ class BottomTools extends StatelessWidget {
                                 saveToGallery: false,
                                 fileName: controlNotifier.folderName)
                             .then((bytes) {
-                          Navigator.of(context, rootNavigator: true).pop();
+                          if (context.mounted) {
+                            Navigator.of(context, rootNavigator: true).pop();
+                          }
                           if (bytes != null) {
                             pngUri = bytes;
                             onDone(pngUri);

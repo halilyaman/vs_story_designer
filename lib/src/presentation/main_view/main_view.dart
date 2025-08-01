@@ -36,7 +36,6 @@ import 'package:vs_story_designer/src/presentation/utils/modal_sheets.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 import 'package:vs_story_designer/src/presentation/widgets/scrollable_pageView.dart';
 import 'package:vs_story_designer/vs_story_designer.dart';
-import 'package:vs_story_designer/src/domain/models/vs_story_designer_config.dart';
 
 class MainView extends StatefulWidget {
   /// editor custom font families
@@ -127,7 +126,7 @@ class _MainViewState extends State<MainView> {
   bool _inAction = false;
 
   /// screen size
-  final _screenSize = MediaQueryData.fromView(WidgetsBinding.instance.window);
+  late final MediaQueryData _screenSize;
 
   /// recorder controller
   // final WidgetRecorderController _recorderController =
@@ -174,6 +173,7 @@ class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
+    _screenSize = MediaQuery.of(context);
     return PopScope(
       onPopInvokedWithResult: (bool didPop, result) {
         if (didPop) return;
