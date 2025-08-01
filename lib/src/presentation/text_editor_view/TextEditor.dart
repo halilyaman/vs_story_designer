@@ -13,10 +13,12 @@ import 'package:vs_story_designer/src/presentation/text_editor_view/widgets/top_
 import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dart';
 import 'package:vs_story_designer/src/presentation/widgets/color_selector.dart';
 import 'package:vs_story_designer/src/presentation/widgets/size_slider_selector.dart';
+import 'package:vs_story_designer/src/domain/models/vs_story_designer_config.dart';
 
 class TextEditor extends StatefulWidget {
   final BuildContext context;
-  const TextEditor({super.key, required this.context});
+  final VSStoryDesignerConfig config;
+  const TextEditor({super.key, required this.context, required this.config});
 
   @override
   State<TextEditor> createState() => _TextEditorState();
@@ -76,6 +78,7 @@ class _TextEditorState extends State<TextEditor> {
                               child: TopTextTools(
                                 onDone: () => _onTap(
                                     context, controlNotifier, editorNotifier),
+                                config: widget.config,
                               )),
                         ),
 

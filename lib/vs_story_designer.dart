@@ -12,8 +12,10 @@ import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifi
 import 'package:vs_story_designer/src/domain/providers/notifiers/scroll_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
 import 'package:vs_story_designer/src/presentation/main_view/main_view.dart';
+import 'package:vs_story_designer/src/domain/models/vs_story_designer_config.dart';
 
 export 'package:vs_story_designer/vs_story_designer.dart';
+export 'package:vs_story_designer/src/domain/models/vs_story_designer_config.dart';
 
 enum ThemeType { dark, light }
 
@@ -155,6 +157,9 @@ class VSStoryDesigner extends StatefulWidget {
   // share image file path
   final String? mediaPath;
 
+  /// configuration for customizable strings
+  final VSStoryDesignerConfig? config;
+
   const VSStoryDesigner(
       {super.key,
       this.giphyKey,
@@ -171,6 +176,7 @@ class VSStoryDesigner extends StatefulWidget {
       this.editorBackgroundColor,
       this.galleryThumbnailQuality,
       this.mediaPath,
+      this.config,
       required this.centerText});
 
   @override
@@ -225,6 +231,7 @@ class _VSStoryDesignerState extends State<VSStoryDesigner> {
         galleryThumbnailQuality: widget.galleryThumbnailQuality,
         centerText: widget.centerText,
         mediaPath: widget.mediaPath,
+        config: widget.config ?? const VSStoryDesignerConfig(),
       ),
     );
   }

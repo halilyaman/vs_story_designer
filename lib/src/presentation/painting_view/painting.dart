@@ -13,9 +13,11 @@ import 'package:vs_story_designer/src/presentation/painting_view/widgets/sketche
 import 'package:vs_story_designer/src/presentation/painting_view/widgets/top_painting_tools.dart';
 import 'package:vs_story_designer/src/presentation/widgets/color_selector.dart';
 import 'package:vs_story_designer/src/presentation/widgets/size_slider_selector.dart';
+import 'package:vs_story_designer/src/domain/models/vs_story_designer_config.dart';
 
 class Painting extends StatefulWidget {
-  const Painting({super.key});
+  final VSStoryDesignerConfig config;
+  const Painting({super.key, required this.config});
 
   @override
   State<Painting> createState() => _PaintingState();
@@ -178,7 +180,7 @@ class _PaintingState extends State<Painting> {
                 ),
 
                 /// top painting tools
-                const SafeArea(child: TopPaintingTools()),
+                SafeArea(child: TopPaintingTools(config: widget.config)),
 
                 /// color picker
                 const Align(

@@ -36,6 +36,7 @@ import 'package:vs_story_designer/src/presentation/utils/modal_sheets.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 import 'package:vs_story_designer/src/presentation/widgets/scrollable_pageView.dart';
 import 'package:vs_story_designer/vs_story_designer.dart';
+import 'package:vs_story_designer/src/domain/models/vs_story_designer_config.dart';
 
 class MainView extends StatefulWidget {
   /// editor custom font families
@@ -82,6 +83,9 @@ class MainView extends StatefulWidget {
 // share image file path
   final String? mediaPath;
 
+  /// configuration for customizable strings
+  final VSStoryDesignerConfig config;
+
   MainView(
       {super.key,
       this.themeType,
@@ -98,7 +102,8 @@ class MainView extends StatefulWidget {
       this.editorBackgroundColor,
       this.galleryThumbnailQuality,
       this.centerText,
-      this.mediaPath});
+      this.mediaPath,
+      required this.config});
 
   @override
   _MainViewState createState() => _MainViewState();
@@ -389,6 +394,7 @@ class _MainViewState extends State<MainView> {
                               child: TopTools(
                                 contentKey: contentKey,
                                 context: context,
+                                config: widget.config,
                                 // renderWidget: () => startRecording(
                                 //     controlNotifier: controlNotifier,
                                 //     renderingNotifier: renderingNotifier,
@@ -421,6 +427,7 @@ class _MainViewState extends State<MainView> {
                               onDoneButtonStyle: widget.onDoneButtonStyle,
                               editorBackgroundColor:
                                   widget.editorBackgroundColor,
+                              config: widget.config,
                             ),
                           ),
 
@@ -429,13 +436,14 @@ class _MainViewState extends State<MainView> {
                           visible: controlNotifier.isTextEditing,
                           child: TextEditor(
                             context: context,
+                            config: widget.config,
                           ),
                         ),
 
                         /// show painting sketch
                         Visibility(
                           visible: controlNotifier.isPainting,
-                          child: const Painting(),
+                          child: Painting(config: widget.config),
                         )
                       ],
                     ),
@@ -481,9 +489,9 @@ class _MainViewState extends State<MainView> {
                                     color: Colors.white,
                                     width: 1.2,
                                   )),
-                              child: const Text(
-                                'Cancel',
-                                style: TextStyle(
+                              child: Text(
+                                widget.config.cancelButtonText,
+                                style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 15,
                                     fontWeight: FontWeight.w400),
@@ -592,7 +600,8 @@ class _MainViewState extends State<MainView> {
           exitDialog(
               context: context,
               contentKey: contentKey,
-              themeType: widget.themeType!);
+              themeType: widget.themeType!,
+              config: widget.config);
     }
     return false;
   }

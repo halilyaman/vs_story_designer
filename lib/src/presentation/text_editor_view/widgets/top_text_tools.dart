@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
 import 'package:vs_story_designer/src/presentation/widgets/tool_button.dart';
+import 'package:vs_story_designer/src/domain/models/vs_story_designer_config.dart';
 
 class TopTextTools extends StatelessWidget {
   final void Function() onDone;
-  const TopTextTools({super.key, required this.onDone});
+  final VSStoryDesignerConfig config;
+  const TopTextTools({super.key, required this.onDone, required this.config});
 
   @override
   Widget build(BuildContext context) {
@@ -146,9 +148,9 @@ class TopTextTools extends StatelessWidget {
                           color: Colors.black12,
                           border: Border.all(color: Colors.white, width: 1.5),
                           borderRadius: BorderRadius.circular(15)),
-                      child: const Text(
-                        'Done',
-                        style: TextStyle(
+                      child: Text(
+                        config.doneButtonText,
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
