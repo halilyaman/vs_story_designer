@@ -126,7 +126,7 @@ class _MainViewState extends State<MainView> {
   bool _inAction = false;
 
   /// screen size
-  late final MediaQueryData _screenSize;
+  late MediaQueryData _screenSize;
 
   /// recorder controller
   // final WidgetRecorderController _recorderController =
